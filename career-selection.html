@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Selection — ResumeIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="career">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Career</p>
+          <h1>Choose Your Target Career</h1>
+          <p class="subtitle">We'll match your resume's skills against this role's requirements.</p>
+        </div>
+      </section>
+
+      <section class="career-grid" id="careerGrid">
+        <!-- cards injected by JS from CAREERS list, first one selected by default -->
+      </section>
+
+      <div style="margin-top:22px;display:flex;justify-content:flex-end;">
+        <a href="skill-match.html" class="btn btn-primary" id="continueBtn">
+          <i data-feather="arrow-right"></i> Continue to Skill Match
+        </a>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  const CAREERS = [
+    { name: "Software Engineer", icon: "code", desc: "General-purpose development across the stack" },
+    { name: "Backend Developer", icon: "server", desc: "APIs, databases, and system architecture", selected: true },
+    { name: "Frontend Developer", icon: "layout", desc: "UI, UX, and client-side applications" },
+    { name: "Full Stack Developer", icon: "layers", desc: "End-to-end web application development" },
+    { name: "Data Scientist", icon: "bar-chart-2", desc: "Statistical modeling and data insights" },
+    { name: "ML Engineer", icon: "cpu", desc: "Building and deploying ML models" },
+    { name: "AI Engineer", icon: "zap", desc: "Applied AI systems and integrations" },
+    { name: "Cyber Security", icon: "shield", desc: "Security auditing and threat defense" },
+    { name: "DevOps", icon: "git-branch", desc: "CI/CD, infrastructure, and automation" },
+    { name: "Mobile Developer", icon: "smartphone", desc: "iOS, Android, and cross-platform apps" },
+  ];
+
+  function renderCareers() {
+    const grid = document.getElementById("careerGrid");
+    grid.innerHTML = CAREERS.map((c, i) => `
+      <div class="career-card${c.selected ? " selected" : ""}" data-index="${i}">
+        <div class="career-card-top">
+          <span class="career-card-icon"><i data-feather="${c.icon}"></i></span>
+          <span class="check"><i data-feather="check"></i></span>
+        </div>
+        <h4>${c.name}</h4>
+        <p>${c.desc}</p>
+      </div>
+    `).join("");
+    feather.replace();
+
+    grid.querySelectorAll(".career-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        grid.querySelectorAll(".career-card").forEach((c) => c.classList.remove("selected"));
+        card.classList.add("selected");
+        const name = CAREERS[card.dataset.index].name;
+        showToast({ icon: "briefcase", title: "Target career updated", message: `Now matching your resume against ${name}.` });
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", renderCareers);
+</script>
+</body>
+</html>
