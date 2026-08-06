@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Analysis — ResumeIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="analysis">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Resume &middot; Rafiq_Backend_v3.pdf</p>
+          <h1>Resume Analysis</h1>
+          <p class="subtitle">Rule-based analysis result &middot; target career: Backend Developer</p>
+        </div>
+        <div class="page-head-actions">
+          <a href="report.html" class="btn btn-ghost"><i data-feather="file"></i> View Full Report</a>
+          <button class="btn btn-primary" data-toast-title="Re-analysis started" data-toast-icon="refresh-cw"><i data-feather="refresh-cw"></i> Re-analyze</button>
+        </div>
+      </section>
+
+      <!-- Score + sections overview -->
+      <section class="stats-grid" style="grid-template-columns:repeat(4,1fr);">
+        <article class="stat-card score-card">
+          <div class="stat-top"><span class="stat-icon icon-teal"><i data-feather="award"></i></span></div>
+          <div class="score-ring-wrap">
+            <svg class="score-ring" viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="50"></circle>
+              <circle class="ring-value" cx="60" cy="60" r="50" data-score="78"></circle>
+            </svg>
+            <div class="score-ring-text"><span class="score-num">78</span><span class="score-max">/100</span></div>
+          </div>
+          <p class="stat-label">Overall Score</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon icon-teal"><i data-feather="check-square"></i></span></div>
+          <p class="stat-value">7 / 8</p>
+          <p class="stat-label">Sections Found</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon icon-indigo"><i data-feather="code"></i></span></div>
+          <p class="stat-value">14</p>
+          <p class="stat-label">Skills Found</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top"><span class="stat-icon icon-coral"><i data-feather="alert-triangle"></i></span></div>
+          <p class="stat-value">1</p>
+          <p class="stat-label">Missing Sections</p>
+        </article>
+      </section>
+
+      <section class="lower-grid">
+
+        <div class="side-col">
+          <!-- Sections found -->
+          <article class="panel">
+            <div class="panel-head"><div><h3>Sections Found</h3></div></div>
+            <ul class="skill-chip-list">
+              <li class="chip chip-matched">Contact Info</li>
+              <li class="chip chip-matched">Summary</li>
+              <li class="chip chip-matched">Skills</li>
+              <li class="chip chip-matched">Experience</li>
+              <li class="chip chip-matched">Education</li>
+              <li class="chip chip-matched">Projects</li>
+              <li class="chip chip-matched">Certifications</li>
+              <li class="chip chip-missing">Achievements — missing</li>
+            </ul>
+          </article>
+
+          <!-- Skills found -->
+          <article class="panel">
+            <div class="panel-head"><div><h3>Skills Found</h3><p>Extracted from your resume text</p></div></div>
+            <ul class="skill-chip-list">
+              <li class="chip chip-matched">Python</li>
+              <li class="chip chip-matched">SQL</li>
+              <li class="chip chip-matched">Git</li>
+              <li class="chip chip-matched">REST API</li>
+              <li class="chip chip-matched">Flask</li>
+              <li class="chip chip-matched">Linux</li>
+              <li class="chip chip-matched">Postman</li>
+              <li class="chip chip-matched">MongoDB</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="side-col">
+          <!-- Strengths -->
+          <article class="panel">
+            <div class="panel-head">
+              <div><h3>Resume Strengths</h3></div>
+              <span class="tag tag-teal">4 found</span>
+            </div>
+            <ul class="progress-list">
+              <li style="display:flex;gap:10px;">
+                <i data-feather="thumbs-up" style="width:16px;height:16px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">Clear, consistent section headings make the resume easy to parse.</span>
+              </li>
+              <li style="display:flex;gap:10px;margin-top:12px;">
+                <i data-feather="thumbs-up" style="width:16px;height:16px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">Strong keyword match with Backend Developer requirements.</span>
+              </li>
+              <li style="display:flex;gap:10px;margin-top:12px;">
+                <i data-feather="thumbs-up" style="width:16px;height:16px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">Project descriptions include measurable outcomes.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Weaknesses -->
+          <article class="panel">
+            <div class="panel-head">
+              <div><h3>Resume Weaknesses</h3></div>
+              <span class="tag tag-amber">3 found</span>
+            </div>
+            <ul class="progress-list">
+              <li style="display:flex;gap:10px;">
+                <i data-feather="alert-circle" style="width:16px;height:16px;color:var(--coral);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">No "Achievements" section — recruiters often scan for this separately.</span>
+              </li>
+              <li style="display:flex;gap:10px;margin-top:12px;">
+                <i data-feather="alert-circle" style="width:16px;height:16px;color:var(--coral);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">Docker and OOP keywords are absent despite being common requirements.</span>
+              </li>
+              <li style="display:flex;gap:10px;margin-top:12px;">
+                <i data-feather="alert-circle" style="width:16px;height:16px;color:var(--coral);flex-shrink:0;margin-top:2px;"></i>
+                <span style="font-size:12.8px;color:var(--text-2);">Summary section is longer than the recommended 3–4 lines.</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Suggestions -->
+          <article class="panel">
+            <div class="panel-head"><div><h3>Suggestions</h3></div></div>
+            <div class="suggestion-box" style="margin-bottom:10px;">
+              <i data-feather="lightbulb"></i>
+              <div><strong>Add Docker experience</strong><p>Include a project or coursework that used Docker to close your biggest skill gap.</p></div>
+            </div>
+            <div class="suggestion-box">
+              <i data-feather="lightbulb"></i>
+              <div><strong>Trim your summary</strong><p>Shorten the professional summary to 3–4 lines for better readability.</p></div>
+            </div>
+          </article>
+        </div>
+
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const ring = document.querySelector(".ring-value");
+    if (!ring) return;
+    const score = parseInt(ring.dataset.score, 10) || 0;
+    const circumference = 2 * Math.PI * 50;
+    const offset = circumference - (score / 100) * circumference;
+    requestAnimationFrame(() => (ring.style.strokeDashoffset = offset));
+  });
+</script>
+</body>
+</html>
