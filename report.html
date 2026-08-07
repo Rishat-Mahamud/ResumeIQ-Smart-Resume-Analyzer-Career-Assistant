@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report — ResumeIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="report">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Reports</p>
+          <h1>Resume Report</h1>
+          <p class="subtitle">Rafiq_Backend_v3.pdf &middot; generated Aug 01, 2026</p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-primary" data-toast-title="Exporting PDF" data-toast-icon="download" data-toast-message="Your report will download once a backend is connected.">
+            <i data-feather="download"></i> Export as PDF
+          </button>
+        </div>
+      </section>
+
+      <section class="panel" style="max-width:800px;margin:0 auto;">
+
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:22px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="brand-mark" style="background:linear-gradient(155deg, var(--teal), var(--teal-dark));">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 3h9l5 5v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 13.5 10.3 16 16 10" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <strong style="font-family:var(--font-display);">ResumeIQ Report</strong>
+          </div>
+          <span class="tag tag-teal">Score: 78 / 100</span>
+        </div>
+
+        <h3 style="font-family:var(--font-display);font-size:15px;margin:0 0 10px;">Candidate</h3>
+        <p style="font-size:13px;color:var(--text-2);margin:0 0 22px;">Rafiq Hasan &middot; Backend Developer track &middot; Jahangirnagar University</p>
+
+        <h3 style="font-family:var(--font-display);font-size:15px;margin:0 0 10px;">Matched Skills</h3>
+        <ul class="skill-chip-list" style="margin-bottom:22px;">
+          <li class="chip chip-matched">Python</li>
+          <li class="chip chip-matched">SQL</li>
+          <li class="chip chip-matched">Git</li>
+          <li class="chip chip-matched">REST API</li>
+          <li class="chip chip-matched">Linux</li>
+          <li class="chip chip-matched">Communication</li>
+        </ul>
+
+        <h3 style="font-family:var(--font-display);font-size:15px;margin:0 0 10px;">Missing Skills</h3>
+        <ul class="skill-chip-list" style="margin-bottom:22px;">
+          <li class="chip chip-missing">Java</li>
+          <li class="chip chip-missing">OOP</li>
+          <li class="chip chip-missing">Docker</li>
+        </ul>
+
+        <h3 style="font-family:var(--font-display);font-size:15px;margin:0 0 10px;">Suggestions</h3>
+        <ul class="progress-list" style="margin-bottom:6px;">
+          <li style="display:flex;gap:10px;">
+            <i data-feather="arrow-right" style="width:15px;height:15px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+            <span style="font-size:12.8px;color:var(--text-2);">Add a Docker-based project to close your largest skill gap.</span>
+          </li>
+          <li style="display:flex;gap:10px;margin-top:10px;">
+            <i data-feather="arrow-right" style="width:15px;height:15px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+            <span style="font-size:12.8px;color:var(--text-2);">Demonstrate OOP concepts with a short sample project.</span>
+          </li>
+          <li style="display:flex;gap:10px;margin-top:10px;">
+            <i data-feather="arrow-right" style="width:15px;height:15px;color:var(--teal-dark);flex-shrink:0;margin-top:2px;"></i>
+            <span style="font-size:12.8px;color:var(--text-2);">Trim the professional summary to 3–4 lines.</span>
+          </li>
+        </ul>
+
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
