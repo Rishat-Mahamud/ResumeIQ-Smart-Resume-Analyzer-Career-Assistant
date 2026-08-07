@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notifications — ResumeIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="notifications">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Account</p>
+          <h1>Notifications</h1>
+          <p class="subtitle">Updates about your resumes and analyses.</p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" data-toast-title="All marked as read" data-toast-icon="check-check">
+            <i data-feather="check-check"></i> Mark all as read
+          </button>
+        </div>
+      </section>
+
+      <section class="panel" style="max-width:720px;margin:0 auto;">
+        <ul class="notif-list" style="gap:0;">
+
+          <li style="padding:16px 4px;border-bottom:1px solid var(--line-soft);align-items:center;">
+            <span class="notif-dot dot-teal"></span>
+            <div style="flex:1;">
+              <p><strong>Analysis completed</strong> for Rafiq_Backend_v3.pdf — score 78</p>
+              <span>2 hours ago</span>
+            </div>
+            <span class="tag tag-teal" style="flex-shrink:0;">New</span>
+          </li>
+
+          <li style="padding:16px 4px;border-bottom:1px solid var(--line-soft);align-items:center;">
+            <span class="notif-dot dot-indigo"></span>
+            <div style="flex:1;">
+              <p><strong>Resume uploaded</strong> — Rafiq_Backend_v3.pdf</p>
+              <span>2 hours ago</span>
+            </div>
+            <span class="tag tag-teal" style="flex-shrink:0;">New</span>
+          </li>
+
+          <li style="padding:16px 4px;border-bottom:1px solid var(--line-soft);align-items:center;">
+            <span class="notif-dot dot-coral"></span>
+            <div style="flex:1;">
+              <p><strong>Resume deleted</strong> — Old_Draft_2025.pdf</p>
+              <span>Yesterday</span>
+            </div>
+          </li>
+
+          <li style="padding:16px 4px;border-bottom:1px solid var(--line-soft);align-items:center;">
+            <span class="notif-dot dot-teal"></span>
+            <div style="flex:1;">
+              <p><strong>Analysis completed</strong> for Rafiq_Backend_v2.docx — score 64</p>
+              <span>Jul 18, 2026</span>
+            </div>
+          </li>
+
+          <li style="padding:16px 4px;align-items:center;">
+            <span class="notif-dot dot-indigo"></span>
+            <div style="flex:1;">
+              <p><strong>Resume uploaded</strong> — Rafiq_Backend_v2.docx</p>
+              <span>Jul 18, 2026</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
