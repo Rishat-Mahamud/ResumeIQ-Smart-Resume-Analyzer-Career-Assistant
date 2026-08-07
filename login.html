@@ -44,17 +44,19 @@
     <div class="auth-card">
       <h1>Welcome back</h1>
       <p class="subtitle">Log in to check your resume score and skill match.</p>
-
+        <!-- Login Form -->
       <form id="loginForm" novalidate data-success-title="Logged in" data-success-message="This demo has no backend yet — connect your API to make this real.">
         <div class="form-group">
+            <!-- Email Label -->
           <label for="loginEmail">Email</label>
           <div class="input-icon-wrap">
             <i data-feather="mail"></i>
+            <!-- Email Input -->
             <input class="input" type="email" id="loginEmail" name="email" placeholder="you@example.com" required>
           </div>
           <p class="form-error">Enter a valid email address.</p>
         </div>
-
+        <!-- Password Input Group -->
         <div class="form-group">
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <label for="loginPassword">Password</label>
@@ -81,9 +83,11 @@
 
       <div class="auth-divider">or</div>
 
+      <!-- Demo Dashboard Link -->
     <a href="dashboard.html" class="btn btn-ghost btn-block" id="demoDashboardLink" data-toast-title="Demo mode" data-toast-icon="info" data-toast-message="Skipping straight to the dashboard for this demo.">
     Continue to Dashboard (demo) 
     </a>
+    <!-- Registration Link -->
       <p class="auth-switch">Don't have an account? <a href="register.html">Create one</a></p>
     </div>
   </section>
