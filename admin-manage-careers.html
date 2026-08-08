@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Careers — ResumeIQ Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="manage-careers">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Admin</p>
+          <h1>Manage Careers</h1>
+          <p class="subtitle">Career tracks and the required skills mapped to each one.</p>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+
+        <article class="panel table-panel">
+          <div class="table-toolbar">
+            <div class="search" style="max-width:260px;">
+              <i data-feather="search"></i>
+              <input type="text" placeholder="Search careers…">
+            </div>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Career</th><th>Required Skills</th><th>Applicants Matching</th><th>Actions</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><i data-feather="server"></i> Backend Developer</td>
+                <td>Python, Java, Git, SQL, OOP, REST API, Docker</td>
+                <td><span class="score-pill good">64%</span></td>
+                <td><button class="table-icon-btn" data-toast-title="Edit career" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Career removed" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td>
+              </tr>
+              <tr>
+                <td><i data-feather="layout"></i> Frontend Developer</td>
+                <td>HTML, CSS, JavaScript, React, Git, REST API</td>
+                <td><span class="score-pill mid">58%</span></td>
+                <td><button class="table-icon-btn" data-toast-title="Edit career" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Career removed" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td>
+              </tr>
+              <tr>
+                <td><i data-feather="layers"></i> Full Stack Developer</td>
+                <td>JavaScript, React, Node.js, SQL, Git, Docker</td>
+                <td><span class="score-pill mid">52%</span></td>
+                <td><button class="table-icon-btn" data-toast-title="Edit career" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Career removed" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td>
+              </tr>
+              <tr>
+                <td><i data-feather="bar-chart-2"></i> Data Scientist</td>
+                <td>Python, Pandas, SQL, Statistics, Machine Learning</td>
+                <td><span class="score-pill low">41%</span></td>
+                <td><button class="table-icon-btn" data-toast-title="Edit career" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Career removed" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td>
+              </tr>
+              <tr>
+                <td><i data-feather="shield"></i> Cyber Security</td>
+                <td>Networking, Linux, Security Tools, Python</td>
+                <td><span class="score-pill low">33%</span></td>
+                <td><button class="table-icon-btn" data-toast-title="Edit career" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Career removed" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="pagination">
+            <span>Showing 1–5 of 10 careers</span>
+            <div class="pagination-btns">
+              <button disabled><i data-feather="chevron-left" style="width:14px;height:14px;"></i></button>
+              <button class="active">1</button><button>2</button>
+              <button><i data-feather="chevron-right" style="width:14px;height:14px;"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="side-col">
+          <article class="panel">
+            <div class="panel-head"><div><h3>Add New Career</h3></div></div>
+            <form id="addCareerForm" novalidate data-success-title="Career added" data-success-message="Job seekers can now select this as a target career.">
+              <div class="form-group">
+                <label for="careerName">Career Name</label>
+                <input class="input" type="text" id="careerName" name="name" placeholder="e.g. QA Engineer" required>
+                <p class="form-error">Career name is required.</p>
+              </div>
+              <div class="form-group">
+                <label for="careerSkills">Required Skills</label>
+                <textarea class="input" id="careerSkills" name="skills" placeholder="Comma separated, e.g. Selenium, Python, Git" required></textarea>
+                <p class="form-error">Add at least one required skill.</p>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block"><i data-feather="plus"></i> Add Career</button>
+            </form>
+          </article>
+        </div>
+
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => initFormValidation("addCareerForm"));
+</script>
+</body>
+</html>
