@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — ResumeIQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="settings">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Account</p>
+          <h1>Settings</h1>
+          <p class="subtitle">Manage your preferences and account.</p>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+        <div class="side-col" style="grid-column:1 / -1;max-width:640px;">
+
+          <article class="panel">
+            <div class="panel-head"><div><h3>Preferences</h3></div></div>
+
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Dark Mode</strong><span>Switch to a darker color theme</span></div>
+              <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="switch-track"></span>
+              </label>
+            </div>
+
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Email Notifications</strong><span>Get notified when an analysis completes</span></div>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"></span>
+              </label>
+            </div>
+
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Language</strong><span>Interface display language</span></div>
+              <select class="input" style="width:160px;">
+                <option>English</option>
+                <option>বাংলা</option>
+              </select>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><h3>Account</h3></div></div>
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Email address</strong><span>rafiq.hasan@example.com</span></div>
+              <a href="profile.html" class="btn btn-ghost">Edit</a>
+            </div>
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Password</strong><span>Last changed 3 months ago</span></div>
+              <a href="profile.html" class="btn btn-ghost">Change</a>
+            </div>
+          </article>
+
+          <article class="panel" style="border-color:var(--coral-tint);">
+            <div class="panel-head"><div><h3 style="color:var(--coral);">Danger Zone</h3><p>This action cannot be undone</p></div></div>
+            <div class="switch-row">
+              <div class="switch-row-text"><strong>Delete Account</strong><span>Permanently remove your account and all resumes</span></div>
+              <button class="btn" style="background:var(--coral-tint);color:var(--coral);border:1px solid var(--coral-tint);" id="deleteAccountBtn">
+                <i data-feather="trash-2"></i> Delete Account
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("darkModeToggle").addEventListener("change", (e) => {
+      showToast({
+        icon: "moon",
+        title: e.target.checked ? "Dark mode on" : "Dark mode off",
+        message: "Full dark theme is coming in a future update.",
+      });
+    });
+
+    document.getElementById("deleteAccountBtn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to delete your account? This cannot be undone.")) {
+        showToast({ icon: "trash-2", title: "Account deletion requested", message: "Connect a backend to make this permanent." });
+      }
+    });
+  });
+</script>
+</body>
+</html>
