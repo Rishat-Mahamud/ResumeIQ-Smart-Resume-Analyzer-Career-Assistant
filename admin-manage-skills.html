@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Skills — ResumeIQ Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="manage-skills">
+
+<div class="app">
+  <div id="sidebarSlot"></div>
+
+  <div class="main">
+    <div id="topbarSlot"></div>
+
+    <main class="content">
+
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Admin</p>
+          <h1>Manage Skills</h1>
+          <p class="subtitle">Add, edit, or remove skills used across the Skill Database.</p>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+
+        <article class="panel table-panel">
+          <div class="table-toolbar">
+            <div class="search" style="max-width:260px;">
+              <i data-feather="search"></i>
+              <input type="text" placeholder="Search skills…">
+            </div>
+            <select class="input" style="width:auto;">
+              <option>All Categories</option>
+              <option>Programming</option>
+              <option>Database</option>
+              <option>Framework</option>
+              <option>Cloud</option>
+              <option>Soft Skill</option>
+              <option>Tools</option>
+            </select>
+          </div>
+
+          <table class="data-table">
+            <thead><tr><th>Skill Name</th><th>Category</th><th>Used In</th><th>Actions</th></tr></thead>
+            <tbody id="skillsTableBody">
+              <tr><td>Python</td><td><span class="tag tag-teal">Programming</span></td><td>7 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit Python" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+              <tr><td>SQL</td><td><span class="tag tag-amber">Database</span></td><td>6 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit SQL" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+              <tr><td>Docker</td><td><span class="tag" style="background:var(--indigo-tint);color:var(--indigo);">Cloud</span></td><td>5 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit Docker" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+              <tr><td>REST API</td><td><span class="tag" style="background:var(--coral-tint);color:var(--coral);">Framework</span></td><td>8 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit REST API" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+              <tr><td>Communication</td><td><span class="tag" style="background:var(--line-soft);color:var(--text-2);">Soft Skill</span></td><td>10 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit Communication" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+              <tr><td>Git</td><td><span class="tag" style="background:var(--line-soft);color:var(--text-2);">Tools</span></td><td>9 careers</td>
+                <td><button class="table-icon-btn" data-toast-title="Edit Git" data-toast-icon="edit-2"><i data-feather="edit-2"></i></button>
+                    <button class="table-icon-btn danger" data-toast-title="Skill deleted" data-toast-icon="trash-2"><i data-feather="trash-2"></i></button></td></tr>
+            </tbody>
+          </table>
+
+          <div class="pagination">
+            <span>Showing 1–6 of 86 skills</span>
+            <div class="pagination-btns">
+              <button disabled><i data-feather="chevron-left" style="width:14px;height:14px;"></i></button>
+              <button class="active">1</button><button>2</button><button>3</button>
+              <button><i data-feather="chevron-right" style="width:14px;height:14px;"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="side-col">
+          <article class="panel">
+            <div class="panel-head"><div><h3>Add New Skill</h3></div></div>
+            <form id="addSkillForm" novalidate data-success-title="Skill added" data-success-message="It's now available across the platform.">
+              <div class="form-group">
+                <label for="skillName">Skill Name</label>
+                <input class="input" type="text" id="skillName" name="name" placeholder="e.g. Kubernetes" required>
+                <p class="form-error">Skill name is required.</p>
+              </div>
+              <div class="form-group">
+                <label for="skillCategory">Category</label>
+                <select class="input" id="skillCategory" name="category" required>
+                  <option value="">Select category</option>
+                  <option>Programming</option>
+                  <option>Database</option>
+                  <option>Framework</option>
+                  <option>Cloud</option>
+                  <option>Soft Skill</option>
+                  <option>Tools</option>
+                </select>
+                <p class="form-error">Please select a category.</p>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block"><i data-feather="plus"></i> Add Skill</button>
+            </form>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><div><h3>Categories</h3></div></div>
+            <div class="progress-list">
+              <div><div class="progress-item-head"><span>Programming</span><strong>22</strong></div><div class="progress-track"><div class="progress-fill" style="width:26%;"></div></div></div>
+              <div><div class="progress-item-head"><span>Tools</span><strong>18</strong></div><div class="progress-track"><div class="progress-fill" style="width:21%;background:#4C5FD5;"></div></div></div>
+              <div><div class="progress-item-head"><span>Framework</span><strong>16</strong></div><div class="progress-track"><div class="progress-fill" style="width:19%;background:#F0A020;"></div></div></div>
+              <div><div class="progress-item-head"><span>Database</span><strong>12</strong></div><div class="progress-track"><div class="progress-fill" style="width:14%;background:#E8563F;"></div></div></div>
+              <div><div class="progress-item-head"><span>Cloud</span><strong>10</strong></div><div class="progress-track"><div class="progress-fill" style="width:11%;background:#8891A3;"></div></div></div>
+              <div><div class="progress-item-head"><span>Soft Skill</span><strong>8</strong></div><div class="progress-track"><div class="progress-fill" style="width:9%;background:#C9CEDC;"></div></div></div>
+            </div>
+          </article>
+        </div>
+
+      </section>
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => initFormValidation("addSkillForm"));
+</script>
+</body>
+</html>
