@@ -1,6 +1,5 @@
 # ResumeIQ-Smart-Resume-Analyzer-Career-Assistant
 Author - Rishat-096, Ibnul-582
-[![Ask DeepWiki](https://devin.ai/assets/askdeepwiki.png)](https://deepwiki.com/Rishat-Mahamud/ResumeIQ-Smart-Resume-Analyzer-Career-Assistant.git)
 
 ResumeIQ is a comprehensive web application designed to help job seekers, especially students and early-career professionals, optimize their resumes. It provides a smart analysis of resumes, offering scores, skill gap identification, and actionable feedback based on target career paths. The platform includes a user-friendly dashboard for job seekers and a powerful admin panel for platform management.
 
