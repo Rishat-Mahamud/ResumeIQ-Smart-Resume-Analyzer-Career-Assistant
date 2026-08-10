@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResumeIQ — Dashboard</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+
+<div class="app">
+
+  <div id="sidebarSlot"></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+
+    <div id="topbarSlot"></div>
+
+    <!-- Content -->
+    <main class="content">
+
+      <!-- Page head -->
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Overview</p>
+          <h1>Welcome back, Rafiq 👋</h1>
+          <p class="subtitle">Here's how your resume is performing against your target career.</p>
+        </div>
+        <div class="page-head-actions">
+          <button class="btn btn-ghost" data-toast-title="Upload Resume" data-toast-icon="upload-cloud" data-toast-message="This demo doesn't have a backend yet — connect one to enable real uploads.">
+            <i data-feather="upload"></i> Upload Resume
+          </button>
+          <button class="btn btn-primary" data-toast-title="Analysis started" data-toast-icon="zap" data-toast-message="We're scanning your latest resume — this usually takes a few seconds.">
+            <i data-feather="zap"></i> Analyze New Resume
+          </button>
+        </div>
+      </section>
+
+      <!-- Stat cards -->
+      <section class="stats-grid">
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon icon-teal"><i data-feather="file-text"></i></span>
+            <span class="stat-trend up"><i data-feather="arrow-up-right"></i> 2 this month</span>
+          </div>
+          <p class="stat-value">12</p>
+          <p class="stat-label">Total Uploaded Resumes</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon icon-indigo"><i data-feather="activity"></i></span>
+            <span class="stat-trend up"><i data-feather="arrow-up-right"></i> 5 this month</span>
+          </div>
+          <p class="stat-value">34</p>
+          <p class="stat-label">Resume Analyses Run</p>
+        </article>
+
+        <!-- Signature: resume score ring -->
+        <article class="stat-card score-card">
+          <div class="stat-top">
+            <span class="stat-icon icon-teal"><i data-feather="award"></i></span>
+          </div>
+          <div class="score-ring-wrap">
+            <svg class="score-ring" viewBox="0 0 120 120">
+              <circle class="ring-track" cx="60" cy="60" r="50"></circle>
+              <circle class="ring-value" cx="60" cy="60" r="50" data-score="78"></circle>
+            </svg>
+            <div class="score-ring-text">
+              <span class="score-num">78</span>
+              <span class="score-max">/100</span>
+            </div>
+          </div>
+          <p class="stat-label">Latest Resume Score</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon icon-amber"><i data-feather="briefcase"></i></span>
+          </div>
+          <p class="stat-value stat-value-text">Backend Developer</p>
+          <p class="stat-label">Target Career</p>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-top">
+            <span class="stat-icon icon-coral"><i data-feather="alert-triangle"></i></span>
+            <span class="stat-trend down"><i data-feather="arrow-down-right"></i> −2 vs last scan</span>
+          </div>
+          <p class="stat-value">6</p>
+          <p class="stat-label">Missing Skills</p>
+        </article>
+
+      </section>
+
+      <!-- Charts -->
+      <section class="charts-grid">
+
+        <article class="panel panel-line">
+          <div class="panel-head">
+            <div>
+              <h3>Resume Score History</h3>
+              <p>Score trend across your last 6 analyses</p>
+            </div>
+            <span class="tag tag-teal">+14 pts</span>
+          </div>
+          <canvas id="scoreHistoryChart" height="150"></canvas>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Skill Categories</h3>
+              <p>Distribution of skills found</p>
+            </div>
+          </div>
+          <canvas id="skillCategoryChart" height="190"></canvas>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Resume Upload History</h3>
+              <p>Uploads per month</p>
+            </div>
+          </div>
+          <canvas id="uploadHistoryChart" height="190"></canvas>
+        </article>
+
+      </section>
+
+      <!-- Lower grid: table + skill match + notifications -->
+      <section class="lower-grid">
+
+        <article class="panel table-panel">
+          <div class="panel-head">
+            <div>
+              <h3>Recent Resume Analysis</h3>
+              <p>Your latest scanned resumes and results</p>
+            </div>
+            <a class="link" href="#history">View all <i data-feather="arrow-right"></i></a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Resume</th>
+                <th>Target Career</th>
+                <th>Score</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i data-feather="file-text"></i> Rafiq_Backend_v3.pdf</td>
+                <td>Backend Developer</td>
+                <td><span class="score-pill good">78</span></td>
+                <td><span class="status status-good">Completed</span></td>
+                <td>Aug 01, 2026</td>
+              </tr>
+              <tr>
+                <td><i data-feather="file-text"></i> Rafiq_Backend_v2.docx</td>
+                <td>Backend Developer</td>
+                <td><span class="score-pill mid">64</span></td>
+                <td><span class="status status-good">Completed</span></td>
+                <td>Jul 18, 2026</td>
+              </tr>
+              <tr>
+                <td><i data-feather="file-text"></i> Rafiq_FullStack.pdf</td>
+                <td>Full Stack Developer</td>
+                <td><span class="score-pill low">51</span></td>
+                <td><span class="status status-good">Completed</span></td>
+                <td>Jul 02, 2026</td>
+              </tr>
+              <tr>
+                <td><i data-feather="file-text"></i> Rafiq_Draft.pdf</td>
+                <td>Backend Developer</td>
+                <td><span class="score-pill">—</span></td>
+                <td><span class="status status-pending">Processing</span></td>
+                <td>Jun 22, 2026</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <div class="side-col">
+
+          <article class="panel benchmark-panel">
+            <div class="panel-head">
+              <div>
+                <h3>Industry Benchmark</h3>
+                <p>Your score vs. Backend Developer applicants</p>
+              </div>
+            </div>
+
+            <div class="benchmark-row">
+              <div class="benchmark-label">
+                <span class="benchmark-dot dot-teal"></span> You
+              </div>
+              <div class="benchmark-track">
+                <div class="benchmark-fill fill-teal" style="width:78%"></div>
+              </div>
+              <span class="benchmark-num">78</span>
+            </div>
+
+            <div class="benchmark-row">
+              <div class="benchmark-label">
+                <span class="benchmark-dot dot-grey"></span> Average
+              </div>
+              <div class="benchmark-track">
+                <div class="benchmark-fill fill-grey" style="width:65%"></div>
+              </div>
+              <span class="benchmark-num">65</span>
+            </div>
+
+            <div class="benchmark-row">
+              <div class="benchmark-label">
+                <span class="benchmark-dot dot-indigo"></span> Top 10%
+              </div>
+              <div class="benchmark-track">
+                <div class="benchmark-fill fill-indigo" style="width:91%"></div>
+              </div>
+              <span class="benchmark-num">91</span>
+            </div>
+
+            <p class="benchmark-note"><i data-feather="trending-up"></i> You're scoring <strong>13 points above average</strong> for this role.</p>
+          </article>
+
+          <article class="panel skill-match-panel">
+            <div class="panel-head">
+              <div>
+                <h3>Skill Match Snapshot</h3>
+                <p>Backend Developer requirements</p>
+              </div>
+              <span class="tag tag-amber">67%</span>
+            </div>
+
+            <div class="match-bar">
+              <div class="match-bar-fill" style="width:67%"></div>
+            </div>
+
+            <ul class="skill-chip-list">
+              <li class="chip chip-matched">Python</li>
+              <li class="chip chip-matched">Git</li>
+              <li class="chip chip-matched">REST API</li>
+              <li class="chip chip-matched">SQL</li>
+              <li class="chip chip-missing">Docker</li>
+              <li class="chip chip-missing">OOP</li>
+            </ul>
+
+            <div class="suggestion-box">
+              <i data-feather="lightbulb"></i>
+              <div>
+                <strong>Suggestion</strong>
+                <p>Add a Docker project to your resume to close your largest skill gap.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel notif-panel">
+            <div class="panel-head">
+              <div>
+                <h3>Notifications</h3>
+              </div>
+              <a class="link" href="#notifications">View all</a>
+            </div>
+            <ul class="notif-list">
+              <li>
+                <span class="notif-dot dot-teal"></span>
+                <div>
+                  <p><strong>Analysis completed</strong> for Rafiq_Backend_v3.pdf</p>
+                  <span>2 hours ago</span>
+                </div>
+              </li>
+              <li>
+                <span class="notif-dot dot-indigo"></span>
+                <div>
+                  <p><strong>Resume uploaded</strong> — Rafiq_Backend_v3.pdf</p>
+                  <span>2 hours ago</span>
+                </div>
+              </li>
+              <li>
+                <span class="notif-dot dot-coral"></span>
+                <div>
+                  <p><strong>Resume deleted</strong> — Old_Draft_2025.pdf</p>
+                  <span>Yesterday</span>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/app.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
