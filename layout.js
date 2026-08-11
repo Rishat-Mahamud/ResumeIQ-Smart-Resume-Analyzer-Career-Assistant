@@ -124,7 +124,7 @@ function renderTopbar() {
         </button>
         <div class="profile-chip-wrap">
           <button class="profile-chip" id="profileChipBtn" aria-haspopup="true" aria-expanded="false">
-            <img src="https://i.pravatar.cc/64?img=13" alt="">
+            
             <div class="profile-chip-text">
               <strong>Rafiq Hasan</strong>
               <span>Backend Developer track</span>
