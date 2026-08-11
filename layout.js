@@ -124,7 +124,7 @@ function renderTopbar() {
         </button>
         <div class="profile-chip-wrap">
           <button class="profile-chip" id="profileChipBtn" aria-haspopup="true" aria-expanded="false">
-           <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile"> 
+          <img src="assetsprofile-icon.svg/ResumeIQ.svg" alt="Profile">
             <div class="profile-chip-text">
               <strong>Rafiq Hasan</strong>
               <span>Backend Developer track</span>
